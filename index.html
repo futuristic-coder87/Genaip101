@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horse Facts</title>
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styling for the main container */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Styling for the main heading */
+        h1 {
+            text-align: center;
+            color: #4a4a8a;
+        }
+
+        /* Styling for the unordered list */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Styling for each list item */
+        li {
+            background-color: #e0e0eb;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        /* Hover effect for list items */
+        li:hover {
+            background-color: #d1d1e0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main container for the content -->
+    <div class="container">
+        <!-- Main heading for the page -->
+        <h1>Amazing Horse Facts</h1>
+        <!-- Unordered list to display horse facts -->
+        <ul id="facts-list"></ul>
+    </div>
+    <script>
+        // Array containing horse facts
+        const horseFacts = [
+            "Horses have been domesticated for over 5,000 years and have played a crucial role in human history, from transportation to agriculture.",
+            "There are over 300 different horse breeds worldwide, each with unique characteristics and abilities, ranging from the small and sturdy Shetland pony to the large and powerful Shire horse.",
+            "Horses have four natural gaits: walk, trot, canter, and gallop. Some breeds, like the Icelandic horse, have additional gaits such as the tölt and pace.",
+            "Horses have excellent senses, particularly their vision and hearing. They have a wide field of vision due to their eye placement and can see almost 360 degrees around them.",
+            "Horses are highly social creatures and often form strong bonds with other horses. They communicate through body language, vocalizations, and even facial expressions.",
+            "Horses are built for speed and can run at speeds of up to 55 miles per hour. The fastest recorded sprinting speed of a horse is 55 mph.",
+            "Horses can live for 25 to 30 years on average, with some even reaching their 40s. The oldest recorded horse lived to be 62 years old.",
+            "Horses have a one-way digestive system, meaning they cannot vomit. This makes them susceptible to colic, a potentially life-threatening condition.",
+            "A horse's hooves are constantly growing, similar to human fingernails. Regular trimming is necessary to maintain hoof health and prevent discomfort.",
+            "Horses have excellent memories and can remember people and places for years. They are also intelligent animals capable of learning complex tasks and commands."
+        ];
+
+        // Event listener to run the script once the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get the unordered list element by its ID
+            const factsList = document.getElementById('facts-list');
+            // Iterate over each fact in the horseFacts array
+            horseFacts.forEach(fact => {
+                // Create a new list item element
+                const listItem = document.createElement('li');
+                // Set the text content of the list item to the current fact
+                listItem.textContent = fact;
+                // Append the list item to the unordered list
+                factsList.appendChild(listItem);
+            });
+        });
+    </script>
+</body>
+</html>
