@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horse Facts</title>
     <style>
-        /* Basic styling for the body */
+        /* Basic styling for the body with a background image */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-image: url('https://example.com/horse-background.jpg'); /* Replace with a URL to a horse-related background image */
+            background-size: cover;
+            background-position: center;
             color: #333;
             margin: 0;
             padding: 0;
@@ -19,45 +21,45 @@
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            text-align: center;
         }
 
         /* Styling for the main heading */
         h1 {
-            text-align: center;
             color: #4a4a8a;
         }
 
-        /* Styling for the unordered list */
-        ul {
-            list-style-type: none;
-            padding: 0;
+        /* Styling for the fact display */
+        #fact-display {
+            font-size: 1.2em;
+            margin: 20px 0;
         }
 
-        /* Styling for each list item */
-        li {
-            background-color: #e0e0eb;
-            margin: 10px 0;
-            padding: 15px;
+        /* Styling for the buttons */
+        .button {
+            background-color: #4a4a8a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
             border-radius: 5px;
+            cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        /* Hover effect for list items */
-        li:hover {
-            background-color: #d1d1e0;
+        .button:hover {
+            background-color: #3b3b6b;
         }
     </style>
 </head>
 <body>
-    <!-- Main container for the content -->
     <div class="container">
-        <!-- Main heading for the page -->
         <h1>Amazing Horse Facts</h1>
-        <!-- Unordered list to display horse facts -->
-        <ul id="facts-list"></ul>
+        <div id="fact-display"></div>
+        <button class="button" onclick="showRandomFact()">Show Random Fact</button>
     </div>
     <script>
         // Array containing horse facts
@@ -74,20 +76,15 @@
             "Horses have excellent memories and can remember people and places for years. They are also intelligent animals capable of learning complex tasks and commands."
         ];
 
-        // Event listener to run the script once the DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            // Get the unordered list element by its ID
-            const factsList = document.getElementById('facts-list');
-            // Iterate over each fact in the horseFacts array
-            horseFacts.forEach(fact => {
-                // Create a new list item element
-                const listItem = document.createElement('li');
-                // Set the text content of the list item to the current fact
-                listItem.textContent = fact;
-                // Append the list item to the unordered list
-                factsList.appendChild(listItem);
-            });
-        });
+        // Function to display a random fact
+        function showRandomFact() {
+            const randomIndex = Math.floor(Math.random() * horseFacts.length);
+            const factDisplay = document.getElementById('fact-display');
+            factDisplay.textContent = horseFacts[randomIndex];
+        }
+
+        // Display a random fact on initial load
+        document.addEventListener('DOMContentLoaded', showRandomFact);
     </script>
 </body>
 </html>
